@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Rewards Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Class Rewards Marketplace</h1>
+    <div id="points">Points: <span id="point-balance">100</span></div>
+  </header>
+
+  <main>
+    <section id="marketplace">
+      <h2>Marketplace</h2>
+      <div class="rewards-container" id="rewards-container">
+        <!-- Rewards will load here -->
+      </div>
+    </section>
+
+    <section id="leaderboard">
+      <h2>Leaderboard</h2>
+      <ol id="leaderboard-list">
+        <!-- Leaderboard entries will go here -->
+      </ol>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
