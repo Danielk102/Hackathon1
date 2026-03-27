@@ -1,0 +1,75 @@
+// Student starting points
+let points = 100;
+
+// Rewards data
+const rewards = [
+  { name: "Homework Pass", cost: 50 },
+  { name: "Extra Recess", cost: 100 },
+  { name: "Snack Treat", cost: 20 },
+  { name: "VIP Seat", cost: 75 },
+  { name: "Mystery Prize", cost: 150 }
+];
+
+// Simple leaderboard data
+const leaderboard = [
+  { name: "Alice", points: 180 },
+  { name: "Bob", points: 140 },
+  { name: "You", points: points },
+  { name: "Charlie", points: 90 }
+];
+
+// Display points
+const pointDisplay = document.getElementById("point-balance");
+pointDisplay.innerText = points;
+
+// Load rewards
+const rewardsContainer = document.getElementById("rewards-container");
+
+rewards.forEach((reward, index) => {
+  const card = document.createElement("div");
+  card.className = "reward-card";
+  card.innerHTML = `
+    <h3>${reward.name}</h3>
+    <p>Cost: ${reward.cost} pts</p>
+    <button id="buy-${index}">Buy</button>
+  `;
+  rewardsContainer.appendChild(card);
+
+  const button = document.getElementById(`buy-${index}`);
+  button.addEventListener("click", () => {
+    if(points >= reward.cost){
+      points -= reward.cost;
+      pointDisplay.innerText = points;
+      alert(`You bought ${reward.name}!`);
+      updateLeaderboard();
+      button.disabled = points < reward.cost;
+    } else {
+      alert("Not enough points!");
+    }
+  });
+
+  button.disabled = points < reward.cost;
+});
+
+// Load leaderboard
+function updateLeaderboard(){
+  const leaderboardList = document.getElementById("leaderboard-list");
+  leaderboardList.innerHTML = "";
+
+  // Update "You" points in leaderboard
+  leaderboard.forEach(entry => {
+    if(entry.name === "You") entry.points = points;
+  });
+
+  // Sort descending
+  leaderboard.sort((a,b) => b.points - a.points);
+
+  leaderboard.forEach(entry => {
+    const li = document.createElement("li");
+    li.innerText = `${entry.name}: ${entry.points} pts`;
+    leaderboardList.appendChild(li);
+  });
+}
+
+// Initial leaderboard load
+updateLeaderboard();
