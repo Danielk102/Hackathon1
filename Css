@@ -1,0 +1,60 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+#points {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 45%;
+}
+
+.rewards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.reward-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  background: #fafafa;
+}
+
+.reward-card button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.reward-card button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
